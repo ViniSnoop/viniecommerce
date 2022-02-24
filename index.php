@@ -1,19 +1,23 @@
 <?php 
 
+//Traz as dependencias do Composer
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+//Namespaces que eu vou precisar aqui
+use \Slim\Slim;
+use \Hcode\Page;
+
+//Ajuda nas rotas
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
     
-	$sql = new Hcode\DB\Sql();
+	$page = new Page();
 
-	$results = $sql->select("SELECT * FROM rb_users");
-
-	echo json_encode($results);
-
+	$page->setTpl("index");
+	
 });
 
 $app->run();
