@@ -27,9 +27,9 @@ class Cart extends Model {
 
             if (!(int)$cart->getidcart() > 0) {
 
-                $data = [
+                $data = array(
                         'dessessionid'=>session_id()
-                ];
+                );
 
                 if (User::checkLogin(false)) {
 
