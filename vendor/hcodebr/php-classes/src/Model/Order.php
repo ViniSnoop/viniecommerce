@@ -43,9 +43,9 @@ class Order extends Model {
                 ':idorder'=>$idorder
             ]);
 
-            if (count($results) > 0) {
-                $this->setData($results[0]);
-            }
+        if (count($results) > 0) {
+            $this->setData($results[0]);
+        }
     }
 
 }
