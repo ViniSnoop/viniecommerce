@@ -170,14 +170,14 @@ class User extends Model {
 
         $sql = new Sql();
 
-        $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrfone, :inadmin)", array(
+        $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
             ":iduser"=>$this->getiduser(),
             ":desperson"=>utf8_decode($this->getdesperson()),
             ":deslogin"=>$this->getdeslogin(),
             ":despassword"=>User::getPasswordHash($this->getdespassword()),
-            "desemail"=>$this->getdesemail(),
-            "nrphone"=>$this->getnrphone(),
-            "inadmin"=>$this->getinadmin()
+            ":desemail"=>$this->getdesemail(),
+            ":nrphone"=>$this->getnrphone(),
+            ":inadmin"=>$this->getinadmin()
         ));
 
         $this->setData($results[0]);
@@ -356,7 +356,7 @@ class User extends Model {
 
         $msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : "";
 
-        User::clearError();
+        User::clearSuccess();
 
         return $msg;
     
