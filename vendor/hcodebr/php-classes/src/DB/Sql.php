@@ -5,8 +5,8 @@ namespace Hcode\DB;
 class Sql {
 
 	const HOSTNAME = "127.0.0.1";
-	const USERNAME = "root";
-	const PASSWORD = "";
+	const USERNAME = "dataManager-viniecommerce";
+	const PASSWORD = "Str0ng.P4ss";
 	const DBNAME = "db_ecommerce";
 
 	private $conn;
